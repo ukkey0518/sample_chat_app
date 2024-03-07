@@ -3,7 +3,9 @@ description: "A new Flutter project."
 publish_to: 'none'
 version: 1.0.0+1
 
-environment: { sdk: ^3.3.0 }
+environment:
+  sdk: ^3.3.0
+  flutter: ^3.19.0
 
 dependencies:
   cloud_firestore: ^4.15.7
