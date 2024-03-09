@@ -29,3 +29,13 @@ flutter:
   uses-material-design: true
   assets:
     - .env
+    - assets/fonts/
+  fonts:
+    - family: Marugame-Regular
+      fonts:
+        - asset: assets/fonts/Marugame-Regular.otf
+          weight: 400
+    - family: Marugame-Udon
+      fonts:
+        - asset: assets/fonts/Marugame-Udon.otf
+          weight: 400

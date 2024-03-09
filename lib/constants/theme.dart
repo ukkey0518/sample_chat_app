@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:sample_chat_app/constants/app_font_family.dart';
 
-final appLightTheme = ThemeData(
+final baseTheme = ThemeData(
+  fontFamily: AppFontFamily.marugameRegular,
+);
+
+final appLightTheme = baseTheme.copyWith(
   colorScheme: lightColorScheme,
 );
 
-final appDarkTheme = ThemeData(
+final appDarkTheme = baseTheme.copyWith(
   colorScheme: darkColorScheme,
 );
 
