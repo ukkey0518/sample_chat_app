@@ -81,5 +81,5 @@ mixin AuthenticationService {
   }
 
   /// Sign out
-  Future<void> signOut() => FirebaseAuth.instance.signOut();
+  static Future<void> signOut() => FirebaseAuth.instance.signOut();
 }

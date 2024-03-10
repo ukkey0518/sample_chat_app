@@ -22,5 +22,6 @@
   "authFormEmailValidationErrorRequired": "Email is required",
   "authFormEmailValidationErrorFormat": "Invalid email format",
   "authFormPasswordLabel": "Password",
-  "authFormPasswordValidationErrorRequired": "Password is required"
+  "authFormPasswordValidationErrorRequired": "Password is required",
+  "settingListTileSignOut": "Sign Out"
 }
