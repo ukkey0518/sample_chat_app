@@ -1,6 +1,6 @@
 // ignore_for_file: always_put_control_body_on_new_line
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sample_chat_app/utils/debug_log.dart';
 import 'package:sample_chat_app/utils/extensions/string_extensions.dart';
 
