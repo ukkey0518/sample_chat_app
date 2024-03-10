@@ -13,9 +13,6 @@ class RootScreen extends HookWidget {
     final currentPageType = useState(RootPageType.home);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sample Chat App'),
-      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentPageType.value.index,
         onTap: (index) => currentPageType.value = RootPageType.values[index],
