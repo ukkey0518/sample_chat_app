@@ -7,12 +7,12 @@ part of 'app_routes.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $homeRoute,
+      $rootRoute,
     ];
 
-RouteBase get $homeRoute => GoRouteData.$route(
+RouteBase get $rootRoute => GoRouteData.$route(
       path: '/',
-      factory: $HomeRouteExtension._fromState,
+      factory: $RootRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
           path: 'auth',
@@ -21,8 +21,8 @@ RouteBase get $homeRoute => GoRouteData.$route(
       ],
     );
 
-extension $HomeRouteExtension on HomeRoute {
-  static HomeRoute _fromState(GoRouterState state) => const HomeRoute();
+extension $RootRouteExtension on RootRoute {
+  static RootRoute _fromState(GoRouterState state) => const RootRoute();
 
   String get location => GoRouteData.$location(
         '/',

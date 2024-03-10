@@ -22,19 +22,19 @@ class _Router {
     goRouter = GoRouter(
       debugLogDiagnostics: true,
       routes: $appRoutes,
-      initialLocation: const HomeRoute().location,
+      initialLocation: const RootRoute().location,
       errorBuilder: (context, state) =>
           ErrorRoute(e: state.error!).build(context, state),
       refreshListenable: _authStateNotifier,
       redirect: (context, state) {
         final matchedLocation = state.matchedLocation;
-        final homeLocation = const HomeRoute().location;
+        final rootLocation = const RootRoute().location;
         final authLocation = const AuthenticationRoute().location;
 
         final signedIn = AuthenticationService.isSignedIn;
 
         if (!signedIn && matchedLocation != authLocation) {
-          return matchedLocation == homeLocation
+          return matchedLocation == rootLocation
               ? const AuthenticationRoute().location
               : AuthenticationRoute(
                   from: Uri.encodeComponent(state.uri.toString()),
@@ -42,7 +42,7 @@ class _Router {
         }
         if (signedIn && matchedLocation == authLocation) {
           final from = state.uri.queryParameters['from'] ?? '';
-          return from.isEmpty ? homeLocation : Uri.decodeComponent(from);
+          return from.isEmpty ? rootLocation : Uri.decodeComponent(from);
         }
         return null;
       },

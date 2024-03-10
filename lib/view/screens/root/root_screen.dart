@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({
+class RootScreen extends StatelessWidget {
+  const RootScreen({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Sample Chat App'),
       ),
       body: const Center(
-        child: Text('Home Screen!'),
+        child: Text('Root Screen!'),
       ),
     );
   }

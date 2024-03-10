@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sample_chat_app/view/screens/authentication/authentication_screen.dart';
 import 'package:sample_chat_app/view/screens/error/error_screen.dart';
-import 'package:sample_chat_app/view/screens/home/home_screen.dart';
+import 'package:sample_chat_app/view/screens/root/root_screen.dart';
 
 part 'app_routes.g.dart';
 
@@ -17,18 +17,18 @@ class ErrorRoute extends GoRouteData {
       ErrorScreen(error: e);
 }
 
-/// Home
-@TypedGoRoute<HomeRoute>(
+/// Root
+@TypedGoRoute<RootRoute>(
   path: '/',
   routes: [
     TypedGoRoute<AuthenticationRoute>(path: 'auth'),
   ],
 )
-class HomeRoute extends GoRouteData {
-  const HomeRoute();
+class RootRoute extends GoRouteData {
+  const RootRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const HomeScreen();
+  Widget build(BuildContext context, GoRouterState state) => const RootScreen();
 }
 
 /// Authentication
