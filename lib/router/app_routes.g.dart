@@ -15,8 +15,8 @@ RouteBase get $homeRoute => GoRouteData.$route(
       factory: $HomeRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: 'sign_in',
-          factory: $SignInRouteExtension._fromState,
+          path: 'auth',
+          factory: $AuthenticationRouteExtension._fromState,
         ),
       ],
     );
@@ -38,13 +38,14 @@ extension $HomeRouteExtension on HomeRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $SignInRouteExtension on SignInRoute {
-  static SignInRoute _fromState(GoRouterState state) => SignInRoute(
+extension $AuthenticationRouteExtension on AuthenticationRoute {
+  static AuthenticationRoute _fromState(GoRouterState state) =>
+      AuthenticationRoute(
         from: state.uri.queryParameters['from'],
       );
 
   String get location => GoRouteData.$location(
-        '/sign_in',
+        '/auth',
         queryParams: {
           if (from != null) 'from': from,
         },

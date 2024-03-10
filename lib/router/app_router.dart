@@ -29,18 +29,18 @@ class _Router {
       redirect: (context, state) {
         final matchedLocation = state.matchedLocation;
         final homeLocation = const HomeRoute().location;
-        final signInLocation = const SignInRoute().location;
+        final authLocation = const AuthenticationRoute().location;
 
         final signedIn = AuthenticationService.isSignedIn;
 
-        if (!signedIn && matchedLocation != signInLocation) {
+        if (!signedIn && matchedLocation != authLocation) {
           return matchedLocation == homeLocation
-              ? const SignInRoute().location
-              : SignInRoute(
+              ? const AuthenticationRoute().location
+              : AuthenticationRoute(
                   from: Uri.encodeComponent(state.uri.toString()),
                 ).location;
         }
-        if (signedIn && matchedLocation == signInLocation) {
+        if (signedIn && matchedLocation == authLocation) {
           final from = state.uri.queryParameters['from'] ?? '';
           return from.isEmpty ? homeLocation : Uri.decodeComponent(from);
         }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sample_chat_app/view/screens/authentication/authentication_screen.dart';
 import 'package:sample_chat_app/view/screens/error/error_screen.dart';
 import 'package:sample_chat_app/view/screens/home/home_screen.dart';
-import 'package:sample_chat_app/view/screens/sign_in/sign_in_screen.dart';
 
 part 'app_routes.g.dart';
 
@@ -21,7 +21,7 @@ class ErrorRoute extends GoRouteData {
 @TypedGoRoute<HomeRoute>(
   path: '/',
   routes: [
-    TypedGoRoute<SignInRoute>(path: 'sign_in'),
+    TypedGoRoute<AuthenticationRoute>(path: 'auth'),
   ],
 )
 class HomeRoute extends GoRouteData {
@@ -31,9 +31,9 @@ class HomeRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) => const HomeScreen();
 }
 
-/// SignIn
-class SignInRoute extends GoRouteData {
-  const SignInRoute({this.from});
+/// Authentication
+class AuthenticationRoute extends GoRouteData {
+  const AuthenticationRoute({this.from});
 
   final String? from;
 
@@ -42,7 +42,7 @@ class SignInRoute extends GoRouteData {
     return CustomTransitionPage<void>(
       key: state.pageKey,
       transitionsBuilder: fadeTransitionsBuilder,
-      child: const SignInScreen(),
+      child: const AuthenticationScreen(),
     );
   }
 }
