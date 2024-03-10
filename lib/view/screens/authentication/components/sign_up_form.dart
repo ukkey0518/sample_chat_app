@@ -51,11 +51,6 @@ class SignUpForm extends HookConsumerWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            'Sign up',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          const SizedBox(height: 16),
           TextFormField(
             controller: emailController,
             enabled: !isProcessing.value,
@@ -82,13 +77,16 @@ class SignUpForm extends HookConsumerWidget {
               labelText: 'Password',
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 32),
           if (isProcessing.value)
             const CircularProgressIndicator()
           else
             ElevatedButton(
               onPressed: signUp,
-              child: const Text('登録する'),
+              child: const SizedBox(
+                width: double.infinity,
+                child: Center(child: Text('登録')),
+              ),
             ),
         ],
       ),
