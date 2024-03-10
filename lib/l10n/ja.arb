@@ -1,0 +1,26 @@
+{
+  "@@locale": "ja",
+  "rootPageLabel": "{page_type, select, home{ホーム} talk{トーク} setting{設定} other{}}",
+  "@rootPageLabel": {
+    "placeHolders": {
+      "page_type": "String"
+    }
+  },
+  "authTitle": "{form_type, select, signIn{ログイン} signUp{新規登録} other{}}",
+  "@authTitle": {
+    "placeHolders": {
+      "form_type": "String"
+    }
+  },
+  "authToggleFormButton": "{form_type, select, signIn{新規登録する} signUp{ログインする} other{}}",
+  "@authToggleFormButton": {
+    "placeHolders": {
+      "form_type": "String"
+    }
+  },
+  "authFormEmailLabel": "メールアドレス",
+  "authFormEmailValidationErrorRequired": "メールアドレスを入力してください",
+  "authFormEmailValidationErrorFormat": "メールアドレスの形式が正しくありません",
+  "authFormPasswordLabel": "パスワード",
+  "authFormPasswordValidationErrorRequired": "パスワードを入力してください"
+}

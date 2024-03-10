@@ -48,3 +48,6 @@ app.*.map.json
 
 # Fonts
 *.otf
+
+# l10n generated dart files
+lib/l10n/*.dart

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:sample_chat_app/l10n/l10n.dart';
 import 'package:sample_chat_app/services/authentication_service.dart';
 import 'package:sample_chat_app/utils/show_snack_bar.dart';
 import 'package:sample_chat_app/view/screens/authentication/authentication_screen.dart';
@@ -56,12 +57,15 @@ class SignInForm extends HookConsumerWidget {
             enabled: !isProcessing.value,
             keyboardType: TextInputType.emailAddress,
             validator: FormBuilderValidators.compose([
-              FormBuilderValidators.required(errorText: 'メールアドレスを入力してね！'),
-              FormBuilderValidators.email(errorText: 'メールアドレスの形式で入力してね！'),
+              FormBuilderValidators.required(
+                errorText:
+                    L10n.of(context)!.authFormEmailValidationErrorRequired,
+              ),
+              FormBuilderValidators.email(
+                errorText: L10n.of(context)!.authFormEmailValidationErrorFormat,
+              ),
             ]),
-            decoration: const InputDecoration(
-              labelText: 'Email',
-            ),
+            decoration: const InputDecoration(labelText: 'Email'),
           ),
           const SizedBox(height: 16),
           TextFormField(
@@ -71,11 +75,12 @@ class SignInForm extends HookConsumerWidget {
             obscureText: true,
             obscuringCharacter: '●',
             validator: FormBuilderValidators.compose([
-              FormBuilderValidators.required(errorText: 'パスワードを入力してね！'),
+              FormBuilderValidators.required(
+                errorText:
+                    L10n.of(context)!.authFormPasswordValidationErrorRequired,
+              ),
             ]),
-            decoration: const InputDecoration(
-              labelText: 'Password',
-            ),
+            decoration: const InputDecoration(labelText: 'Password'),
           ),
           const SizedBox(height: 32),
           if (isProcessing.value)

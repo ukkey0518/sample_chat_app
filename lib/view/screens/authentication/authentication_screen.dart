@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:sample_chat_app/constants/app_font_family.dart';
+import 'package:sample_chat_app/l10n/l10n.dart';
 import 'package:sample_chat_app/view/screens/authentication/components/sign_in_form.dart';
 import 'package:sample_chat_app/view/screens/authentication/components/sign_up_form.dart';
 
@@ -9,7 +10,7 @@ class AuthenticationScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formType = useState(AuthenticationFormType.signIn);
+    final currentFormType = useState(AuthenticationFormType.signIn);
 
     return PopScope(
       canPop: false,
@@ -21,17 +22,15 @@ class AuthenticationScreen extends HookWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  switch (formType.value) {
-                    AuthenticationFormType.signIn => 'Sign in',
-                    AuthenticationFormType.signUp => 'Sign up',
-                  },
-                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                        fontFamily: AppFontFamily.marugameUdon,
-                      ),
+                  L10n.of(context)!.authTitle(currentFormType.value.name),
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall
+                      ?.copyWith(fontFamily: AppFontFamily.marugameUdon),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16),
-                  child: switch (formType.value) {
+                  child: switch (currentFormType.value) {
                     AuthenticationFormType.signIn => const SignInForm(),
                     AuthenticationFormType.signUp => const SignUpForm(),
                   },
@@ -39,19 +38,11 @@ class AuthenticationScreen extends HookWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {
-                      formType.value = switch (formType.value) {
-                        AuthenticationFormType.signIn =>
-                          AuthenticationFormType.signUp,
-                        AuthenticationFormType.signUp =>
-                          AuthenticationFormType.signIn,
-                      };
-                    },
+                    onPressed: () =>
+                        currentFormType.value = currentFormType.value.toggled(),
                     child: Text(
-                      switch (formType.value) {
-                        AuthenticationFormType.signIn => '新規登録する',
-                        AuthenticationFormType.signUp => 'ログインする',
-                      },
+                      L10n.of(context)!
+                          .authToggleFormButton(currentFormType.value.name),
                     ),
                   ),
                 ),
@@ -64,4 +55,12 @@ class AuthenticationScreen extends HookWidget {
   }
 }
 
-enum AuthenticationFormType { signIn, signUp }
+enum AuthenticationFormType {
+  signIn,
+  signUp;
+
+  AuthenticationFormType toggled() => switch (this) {
+        AuthenticationFormType.signIn => AuthenticationFormType.signUp,
+        AuthenticationFormType.signUp => AuthenticationFormType.signIn,
+      };
+}
