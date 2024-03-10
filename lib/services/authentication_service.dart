@@ -22,7 +22,7 @@ mixin AuthenticationService {
       .onlyNotify((p, c) => p != c);
 
   /// Create a new user with email and password
-  Future<String> createUserWithEmailAndPassword({
+  static Future<String> createUserWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
@@ -54,7 +54,7 @@ mixin AuthenticationService {
   }
 
   /// Sign in with email and password
-  Future<String> signInWithEmailAndPassword({
+  static Future<String> signInWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
