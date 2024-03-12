@@ -23,5 +23,9 @@
   "authFormEmailValidationErrorFormat": "メールアドレスの形式が正しくありません",
   "authFormPasswordLabel": "パスワード",
   "authFormPasswordValidationErrorRequired": "パスワードを入力してください",
+  "authFormConfirmPasswordLabel": "パスワード（確認）",
+  "authFormConfirmPasswordValidationErrorMatch": "パスワードが一致しません",
+  "authFormUserNameLabel": "ユーザー名",
+  "authFormUserNameValidationErrorRequired": "ユーザー名を入力してください",
   "settingListTileSignOut": "ログアウト"
 }

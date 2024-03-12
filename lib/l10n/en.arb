@@ -12,7 +12,7 @@
       "form_type": "String"
     }
   },
-  "authToggleFormButton": "{form_type, select, signIn{Sign } signUp{ログインする} other{}}",
+  "authToggleFormButton": "{form_type, select, signIn{Sign Up} signUp{Sign In} other{}}",
   "@authToggleFormButton": {
     "placeHolders": {
       "form_type": "String"
@@ -23,5 +23,9 @@
   "authFormEmailValidationErrorFormat": "Invalid email format",
   "authFormPasswordLabel": "Password",
   "authFormPasswordValidationErrorRequired": "Password is required",
+  "authFormConfirmPasswordLabel": "Confirm Password",
+  "authFormConfirmPasswordValidationErrorMatch": "Passwords do not match",
+  "authFormUserNameLabel": "User Name",
+  "authFormUserNameValidationErrorRequired": "User Name is required",
   "settingListTileSignOut": "Sign Out"
 }

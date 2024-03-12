@@ -18,35 +18,37 @@ class AuthenticationScreen extends HookWidget {
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  L10n.of(context)!.authTitle(currentFormType.value.name),
-                  style: Theme.of(context)
-                      .textTheme
-                      .displaySmall
-                      ?.copyWith(fontFamily: AppFontFamily.marugameUdon),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: switch (currentFormType.value) {
-                    AuthenticationFormType.signIn => const SignInForm(),
-                    AuthenticationFormType.signUp => const SignUpForm(),
-                  },
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () =>
-                        currentFormType.value = currentFormType.value.toggled(),
-                    child: Text(
-                      L10n.of(context)!
-                          .authToggleFormButton(currentFormType.value.name),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    L10n.of(context)!.authTitle(currentFormType.value.name),
+                    style: Theme.of(context)
+                        .textTheme
+                        .displaySmall
+                        ?.copyWith(fontFamily: AppFontFamily.marugameUdon),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: switch (currentFormType.value) {
+                      AuthenticationFormType.signIn => const SignInForm(),
+                      AuthenticationFormType.signUp => const SignUpForm(),
+                    },
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () => currentFormType.value =
+                          currentFormType.value.toggled(),
+                      child: Text(
+                        L10n.of(context)!
+                            .authToggleFormButton(currentFormType.value.name),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

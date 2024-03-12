@@ -22,6 +22,8 @@ class SignUpForm extends HookConsumerWidget {
     final isProcessing = useState(false);
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
+    final confirmPasswordController = useTextEditingController();
+    final userNameController = useTextEditingController();
 
     /// Sign up with email and password
     Future<void> signUp() async {
@@ -65,7 +67,9 @@ class SignUpForm extends HookConsumerWidget {
                 errorText: L10n.of(context)!.authFormEmailValidationErrorFormat,
               ),
             ]),
-            decoration: const InputDecoration(labelText: 'Email'),
+            decoration: InputDecoration(
+              labelText: L10n.of(context)!.authFormEmailLabel,
+            ),
           ),
           const SizedBox(height: 16),
           TextFormField(
@@ -80,7 +84,40 @@ class SignUpForm extends HookConsumerWidget {
                     L10n.of(context)!.authFormPasswordValidationErrorRequired,
               ),
             ]),
-            decoration: const InputDecoration(labelText: 'Password'),
+            decoration: InputDecoration(
+              labelText: L10n.of(context)!.authFormPasswordLabel,
+            ),
+          ),
+          const SizedBox(height: 16),
+          TextFormField(
+            controller: confirmPasswordController,
+            enabled: !isProcessing.value,
+            keyboardType: TextInputType.visiblePassword,
+            obscureText: true,
+            obscuringCharacter: '●',
+            validator: FormBuilderValidators.equal(
+              passwordController.text,
+              errorText:
+                  L10n.of(context)!.authFormConfirmPasswordValidationErrorMatch,
+            ),
+            decoration: InputDecoration(
+              labelText: L10n.of(context)!.authFormConfirmPasswordLabel,
+            ),
+          ),
+          const SizedBox(height: 16),
+          TextFormField(
+            controller: userNameController,
+            enabled: !isProcessing.value,
+            keyboardType: TextInputType.text,
+            validator: FormBuilderValidators.compose([
+              FormBuilderValidators.required(
+                errorText:
+                    L10n.of(context)!.authFormUserNameValidationErrorRequired,
+              ),
+            ]),
+            decoration: InputDecoration(
+              labelText: L10n.of(context)!.authFormUserNameLabel,
+            ),
           ),
           const SizedBox(height: 32),
           if (isProcessing.value)
