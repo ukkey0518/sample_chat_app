@@ -36,3 +36,6 @@ Runner/GeneratedPluginRegistrant.*
 # Firebase settings
 Runner/GoogleService-Info.plist
 firebase_app_id_file.json
+
+# lockfiles
+Podfile.lock
