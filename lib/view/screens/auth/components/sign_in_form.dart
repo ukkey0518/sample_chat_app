@@ -7,12 +7,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sample_chat_app/l10n/l10n.dart';
 import 'package:sample_chat_app/services/authentication_service.dart';
 import 'package:sample_chat_app/utils/show_snack_bar.dart';
-import 'package:sample_chat_app/view/screens/authentication/authentication_screen.dart';
+import 'package:sample_chat_app/view/screens/auth/auth_screen.dart';
 
 /// Sign-in form
 ///
 /// This widget is a form for signing in with email and password.
-/// It is used in [AuthenticationScreen].
+/// It is used in [AuthScreen].
 class SignInForm extends HookConsumerWidget {
   const SignInForm({super.key});
 

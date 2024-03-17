@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:sample_chat_app/l10n/l10n.dart';
-import 'package:sample_chat_app/view/screens/authentication/components/sign_in_form.dart';
-import 'package:sample_chat_app/view/screens/authentication/components/sign_up_form.dart';
+import 'package:sample_chat_app/view/screens/auth/components/sign_in_form.dart';
+import 'package:sample_chat_app/view/screens/auth/components/sign_up_form.dart';
 
-class AuthenticationScreen extends HookWidget {
-  const AuthenticationScreen({super.key});
+class AuthScreen extends HookWidget {
+  const AuthScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

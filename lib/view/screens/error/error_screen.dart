@@ -6,7 +6,7 @@ class ErrorScreen extends StatelessWidget {
     super.key,
   });
 
-  final Object error;
+  final dynamic error;
 
   @override
   Widget build(BuildContext context) {
